@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
         this.dateArray = Object.keys(element.Value);
       }
     });
+    this.arrList=[];
   }
 
   onDateSelected(date: any) {

@@ -21,19 +21,52 @@ export class HomeComponent implements OnInit {
   selectedView = 'Bullish';
   views = ['Bullish', 'Bearish', 'RangeBound', 'Volatile'];
 
-  dateArray = ['24-Apr-2024', '02-May-2024', '09-May-2024', '31-May-2024', '21-Jun-2024'];
+  dateArray: any = [];
   selectedDate = this.dateArray[0];
+  strategyArray: any = [];
+
+  arrList:any = [];
 
   ngOnInit(): void {
     // console.log('Strategy==========',Strategy);
   }
 
-  tabChange() {
-    alert('tabChange')
+  tabChange(tabName: string) {
+    this.selectedView = tabName;
+    console.log(tabName);
+    this.dateArray = [];
+
+    Strategy.forEach((element: any) => {
+      if (element.View == tabName) {
+        console.log();
+        this.dateArray = Object.keys(element.Value);
+      }
+    });
   }
 
-  onSelected() {
-    alert("onSelected")
+  onDateSelected(date: any) {
+
+    console.log('onSelected= ', date);
+
+    var result = Strategy.filter((obj: any) => {
+      return obj.View == this.selectedView
+    })
+
+    console.log(result[0].Value[date]);
+
+    this.arrList = [];
+    result[0].Value[date].forEach((element:any)=>{
+      this.arrList.push({key: element, count:1});
+
+    });
+
+    console.log(this.arrList);
+ 
+    // let dupli = Object.entries(result[0].Value[date])
+    //   .filter((key, value) => value > 1)
+    //   .map(([key, value]) => ({ item: key, c: value }));
+
+    //   console.log(dupli);
   }
 
   test() {

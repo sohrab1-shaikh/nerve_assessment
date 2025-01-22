@@ -1,4 +1,4 @@
-<!-- <p>home works!</p>
+<p>home works!</p>
 
 
 <div class="slider-toggle">
@@ -8,17 +8,16 @@
         name="view"
         [(ngModel)]="selectedView"
         [value]="view"
-        id="{{view}}"
-     
-      />
-      <span class="view-label">{{ view }}</span>
+        id="{{view}}"  />
+        
+      <span class="view-label"  (click)="tabChange(view)">{{ view }}</span>
     </label>
   </div>
   
   <div>
-  <select #date [(ngModel)]="selectedDate" onchange="onSelected()">
+  <select #data [(ngModel)]="selectedDate" (click)="onDateSelected(data.value)">
     <option *ngFor="let date of dateArray" [value]="date">{{ date }}</option>
   </select>
-</div> -->
+</div>
 
-<input type="button" onclick="test()" />
+<!-- <input type="button" onclick="test()" /> -->

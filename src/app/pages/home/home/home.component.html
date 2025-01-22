@@ -20,4 +20,17 @@
   </select>
 </div>
 
-<!-- <input type="button" onclick="test()" /> -->
+ 
+<div class="strategy-container">
+  <div *ngFor="let item of arrList"
+    class="strategy-toggle">
+    <span  [ngClass]="{'bullish': item.key === 'Bullish', 'bearish': item.key === 'Bearish'}" >
+      {{ item.key }}
+    </span>
+    <span>{{ item.count }} {{ item.count === 1 ? 'strategy' : 'strategies' }}</span>
+  </div>
+</div>
+
+
+
+ 

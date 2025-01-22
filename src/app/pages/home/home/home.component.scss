@@ -49,3 +49,29 @@
     padding: 10px;       
     box-sizing: border-box;   
   }
+
+  .strategy-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between items */
+    padding: 10px;
+  }
+  
+  .strategy-toggle {
+    display: flex;
+    justify-content: space-between; /* Ensures the key and count have space between them */
+    align-items: center; /* Centers the text vertically */
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 12px; /* Curved edges */
+    padding: 15px 20px; /* Inner spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  .strategy-toggle span {
+    display: inline-block;
+  }
+  
+
+  
+  

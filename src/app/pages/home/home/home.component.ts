@@ -28,8 +28,15 @@ export class HomeComponent implements OnInit {
   arrList:any = [];
 
   ngOnInit(): void {
-    // console.log('Strategy==========',Strategy);
+   
+    this.tabChange(this.selectedView);
+ 
+    if (this.dateArray.length > 0) {
+      this.selectedDate = this.dateArray[0];
+      this.onDateSelected(this.selectedDate);
+    }
   }
+  
 
   tabChange(tabName: string) {
     this.selectedView = tabName;
@@ -54,19 +61,16 @@ export class HomeComponent implements OnInit {
 
     console.log(result[0].Value[date]);
 
-    this.arrList = [];
+    const countMap: Record<string, number> = {};
     result[0].Value[date].forEach((element:any)=>{
-      this.arrList.push({key: element, count:1});
+      countMap[element] = (countMap[element] || 0) + 1;
 
     });
 
     console.log(this.arrList);
+    this.arrList = Object.entries(countMap).map(([key, count]) => ({ key, count }));
  
-    // let dupli = Object.entries(result[0].Value[date])
-    //   .filter((key, value) => value > 1)
-    //   .map(([key, value]) => ({ item: key, c: value }));
-
-    //   console.log(dupli);
+    
   }
 
   test() {
